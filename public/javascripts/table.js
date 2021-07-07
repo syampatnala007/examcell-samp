@@ -3,6 +3,7 @@ var app=angular.module('myApp',[])
     $scope.users=[]
     $scope.user={}
     $scope.titile={}
+    $scope.member={}
     $scope.get=function()
     {
         // body...
@@ -35,11 +36,11 @@ var app=angular.module('myApp',[])
     $scope.titile=val;
     postdata1.postingRL(val);
   }
-  $scope.getRM=function(val){
-    // $scope.member=val;
-    // console.log("areyyyyyyyyyyyyyyyyyyyyyy---------------"+val);
-    $scope.titile=val;
-    postdata.postingRM(val);
+  $scope.getRM=function(vall){
+    $scope.member=vall;
+    console.log("areyyyyyyyyyyyyyyyyyyyyyy---------------"+$scope.member);
+    // $scope.titile=val;
+    postdata.postingRM(vall);
   }
 
   })
@@ -64,11 +65,13 @@ var app=angular.module('myApp',[])
   app.service('postdata',function($http) {
     return{
       postingRM:function(val) {
-        console.log(val)
+        console.log("haiiii\n"+val.name)
         $http({method:'post',url:'/an_rem',data:val}).then(function(success) {
+          console.log("Remmmm")
           console.log(success)
           // alert("successfully inserted ")
-          window.open('/remuneration',"_blank");
+          // window.open('/arel',"_blank");
+          window.open('/arem',"_blank");
           // window.location.href='/remuneration';
           // window.location.target='new';
         },function(error) {

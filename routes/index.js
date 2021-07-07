@@ -1323,7 +1323,7 @@ router.post('/an_rel',function(req,res){
 })
 
 router.post('/an_rem',function(req,res){
-	
+	console.log("hellowwwwwwwwwwwww-");
 	collection.findOne({"fromdate":req.body.fromdate,"mail":req.body.mail},function(err,docs){
 		console.log(req.body.fromdate+"\n"+req.body.mail);
 		if(docs && !err){
@@ -1342,6 +1342,10 @@ router.post('/an_rem',function(req,res){
 
 router.get('/arel',function(req,res){
 	res.render('releave_letter',{"titile":titile});
+	// console.log("Enterd");
+})
+router.get('/arem',function(req,res){
+	res.render('remuneration',{"titile":titile});
 	// console.log("Enterd");
 })
 
