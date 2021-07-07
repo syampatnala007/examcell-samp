@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+  head
+    title Exam cell
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='stylesheets/style.css', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+  style.
+    .button4
+    {
+
+      
+      border: none;
+      color: black;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0,80,80,.4); 
+      border-radius: 4px;  
+    }
+  body.bg-secondary
+    div.col-sm-3
+    br
+    br
+    br
+    div()
+      center
+        img.img-responsive(src='images/logo.png', alt='aditya logo')
+      .alert.alert-success.alert-dismissible
+        button.close(type='button', data-dismiss='alert') ×
+        strong #{success}
+      .container
+        a(href='/')
+          img(src='images/bk.png', alt='back logo' width='40px')
+        center
+          ul.nav.nav-pills.nav-stacked.col-md-offset-2.col-md-8
+            li.active.col-md-3
+              form(method='post',action='/remuneration' target='new')
+                input(type='submit' value='Generate Remuneration').button4.btn-dark
+            br
+            li.col-md-3
+              form(method='post',action='/rl' target='new')
+                input(type='submit' value='Generate Relieve Letter').button4.btn-dark
+            br
+            li.col-md-3
+              form(method='post',action='/rem')
+                input(type='submit' value='Click It To View All Data').button4.btn-dark

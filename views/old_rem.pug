@@ -1,0 +1,272 @@
+doctype html
+html
+  head
+    title Remunaration,TA&DA Bill
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    link(rel='stylesheet', media='print', href='sample.css')
+    link(rel='stylesheet', type='text/css', href='bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js')
+    style.
+      @page { size: auto;  margin: 0mm; }
+      #n{
+        display:none;
+      }
+
+      .row{
+        padding-left:60px;
+        border-bottom: 2px solid black;
+      }
+      @media print{
+        button,#im{
+          visibility:hidden;
+          width:0px;
+          height:0px;
+
+        }
+        #ttd th, #ttd td {
+        border:1px solid grey;
+        padding:0.4em;
+        }
+        .last{
+          border:1px solid grey;
+          padding:0.4em;
+        }
+
+
+      }
+  body(style='margin: 40px;')
+    a.btn(href='/remuneration_data')
+      img(src='images/bk.png', alt='back logo' width='40px')#im
+    div#dp.container
+      header(style='text-align: center;').row
+          div(style='float:left; width:180px;' )
+            img(src='images/aditya.jpg', alt='aditya logo',width='130px',height='90px')
+          div(style='float:right;')
+            h1 ADITYA ENGINEERING COLLEGE
+            
+            | An autonomous institution
+            br
+            | Approved by AICTE
+            b .
+            | Accredited by NBA
+            b .
+            | NAAC with "A" Grade
+            br
+            | Recognized by UGCU under Sections 2(F) and 12(B) of UGC Act,1956
+      h4(style='text-align: center;')
+        | EXAM SECTION
+        br
+        | REMUNERATION,TA&DA BILL
+      
+      table#ttd(width='800').table.table-bordered.table-stripped.table-hover
+          tbody
+            tr
+              td
+                | Name of the Examination :
+              td
+                | #{vall.lab}
+            tr
+              td
+                | Date :
+              td
+                | #{vall.tdate}
+  
+            tr
+              td
+                | Name of the Course :
+              td
+                | #{vall.lab}
+            tr
+              td
+                | Course Code :
+              td
+                | #{vall.cc}
+            tr
+              td
+                | Number of Students Attended:
+              td
+                | #{vall.stud}
+            tr
+              td#nof
+                | Name of Faculty :
+              td
+                | #{vall.Name}
+            tr
+              td
+                | Designation :
+              td
+                | #{vall.desig}
+            tr
+              td
+                | Name of the College :
+              td
+                | #{vall.clg}
+            tr
+              td
+                | PH No :
+              td
+                | #{vall.ph}
+            tr
+              td
+                | Name of Bank :
+              td
+                | #{vall.bnk}
+            tr
+              td
+                | IFSC Code :
+              td
+                | #{vall.ifsc}
+            tr
+              td
+                | Account Number :
+              td
+                | #{vall.ac}
+      table#ttd(width='800').table.table-bordered.table-stripped.table-hover
+          
+            tr
+              td
+                | DA
+           
+              td
+                | 
+            
+              td
+                | TA
+            
+              td
+                | 
+            tr
+              td
+                | No of days for DA : 
+              td
+                | #{vall.tnd}
+              td
+                | TA for both sides: 
+              td
+                | #{vall.ta}
+  
+            tr
+              td
+                | DA per day : 
+              td
+                | #{vall.da}
+              td
+                | Number of Days: 
+              td
+                | #{vall.tnd}
+            tr
+              td
+                | DA Amount: 
+              td
+                | #{vall.da}
+              td
+                | TA Amount: (TA for both sides X No.of days)
+              td
+                | #{(vall.ta)*vall.tnd}
+      table#ttd(width='800').table.table-bordered.table-stripped.table-hover
+            tr
+              td
+                |Remuneration (No.of students X #{vall.remp}):
+              td
+                |#{vall.rap}
+      table#ttd(width='800').table.table-bordered.table-stripped.table-hover                           
+            tr
+              td
+                | Grand Total (remuneration+TA+DA): 
+              td
+                | #{vall.totrem}
+            tr
+              td
+                |in words Grand Total (remuneration+TA+DA): 
+              td
+                | #{vall.tinwords}
+            
+              
+            tr
+              td
+                |place: 
+              td
+                | Surampalem
+            tr
+              td
+                |date: 
+              td
+                | #{vall.tdate}
+      table(border='0' width='800' height='50' align='bottom').table.table-bordered.table-stripped.table-hover
+            tr
+              td(style='text-align:right;')
+                | Sign of the Faculty
+              
+               
+      footer(style='border-top: 2px solid black;')
+        center
+          h4(style='background-color: black;color: white;text-align: center;width: 250px;') For Office Use Only
+        form
+          table#ttd(width='800').table.table-bordered.table-stripped.table-hover
+            tbody
+              tr
+                td(id='word')
+                  | Passed for Rupees :#{vall.totrem}
+                td
+                  | In Words Rupees : #{vall.tinwords}
+                  |  Only
+              tr.noBorder(style='border:0px;')
+                td
+                  h6(style="float:left;") AEC
+                td
+                  h6(style="float:right;") CE
+    center
+      table.table
+        td
+        td
+        td
+        td
+        td
+        td
+          button#bt(onclick='window.print()').btn.btn-primary Print
+        td
+          button(onclick='Export()').btn.btn-primary CLICK TO download pdf
+        input#n(type='text' value=vall.name)
+script.
+  function printrem() 
+  {
+
+  var divToPrint=document.getElementById('dp');
+  var imgin=document.getElementById('imgin');
+  var htmlToPrint = '' +
+        '<style type="text/css">' +
+        '#ttd th, #ttd td {' +
+        'border:1px solid grey;' +
+        'padding:0.4em;' +
+        '}' +
+        '</style>';
+    htmlToPrint += divToPrint.outerHTML;
+    newWin = window.open("","","width=900,height=700");
+    newWin.document.write(htmlToPrint+imgin.innerHTML);
+    newWin.print();
+    newWin.close();
+
+  }
+  function Export() {
+      var nof=document.getElementById('nof');
+      html2canvas(document.getElementById('dp'), {
+          onrendered: function (canvas) {
+              var data = canvas.toDataURL();
+              var docDefinition = {
+                  content: [{
+                      image: data,
+                      width: 500
+                  }]
+              };
+              
+              var name=document.getElementById('n').value;
+              pdfMake.createPdf(docDefinition).download(name+"_remunaration_data.pdf");
+          }
+      });
+  }

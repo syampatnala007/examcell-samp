@@ -1,0 +1,453 @@
+html
+  head
+    title data
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(href='stylesheets/style.css', rel='stylesheet')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script (src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js')
+    script(src='/javascripts/table.js')
+    link(rel='stylesheet' href='https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css')
+    link(rel='stylesheet' href='https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css')
+    style.
+      .ppp{
+      display:none;
+      }
+      .table-sortable th {
+        cursor: pointer;
+      }
+      
+      .table-sortable .th-sort-asc::after {
+        content: "\25b4";
+      }
+      
+      .table-sortable .th-sort-desc::after {
+        content: "\25be";
+      }
+      
+      .table-sortable .th-sort-asc::after,
+      .table-sortable .th-sort-desc::after {
+        margin-left: 5px;
+      }
+      
+      .table-sortable .th-sort-asc,
+      .table-sortable .th-sort-desc {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      h3 div{
+      float:right;
+      }
+      div input.search-input {
+            width: 300px;
+            font-size:15px;
+            margin-left: auto;
+            float: right;
+      }
+
+  body(ng-app="myApp" ng-controller="myController" ng-init="get()")
+
+    a(href='/logout' style='color:black;')
+      img(src='images/logout.jpg', alt='aditya logo' style='width:30px;')
+      p Logout
+    h1 remuneration page
+    h3
+      div
+        label Search:
+        input.form-control.search-input(type='search' placeholder='Search...' data-table='aa')
+    br
+    br
+    table#tab.aa.table-sortable.table.table-bordered.table-stripped.table-hover.bg-light
+      thead
+        tr
+          th From date
+          th To date
+          th Name
+          th EmpID
+          th Gmail
+          th Ph no
+          th Designation
+          th College
+          th Department
+          th Semester
+          th Section
+          th Lab
+          th Course code
+          th Students count
+          th Bank name
+          th IFSC
+          th A/C no
+          th TA(from & to)
+          th DA per day
+          th Remuneration per paper
+          th Remuneration for all papers
+          th Total remuneration
+          th No of days
+          th Total DA
+          th Total TA
+          th Generate Letter
+          th Generate Bill
+          th EDIT
+      tbody
+        tr(ng-repeat='member in users')
+            td
+             p(ng-hide='siva') {{member.fromdate}}
+             input(ng-show='siva', type='text', ng-model='member.fromdate')
+            td
+             p(ng-hide='siva') {{member.todate}}
+             input(ng-show='siva', type='text', ng-model='member.todate')
+            td
+             p#par(ng-hide='siva') {{member.name}}
+             input(ng-show='siva', type='text', ng-model='member.name')
+            td
+             p(ng-hide='siva') {{member.empid}}
+             input(ng-show='siva', type='text', ng-model='member.empid')
+            td
+             p(ng-hide='siva') {{member.mail}}
+             input(ng-show='siva', type='text', ng-model='member.mail')
+            td
+             p(ng-hide='siva') {{member.phno}}
+             input(ng-show='siva', type='text', ng-model='member.phno')
+            td
+             p(ng-hide='siva') {{member.designation}}
+             input(ng-show='siva', type='text', ng-model='member.designation')
+            td
+             p(ng-hide='siva') {{member.college}}
+             input(ng-show='siva', type='text', ng-model='member.college')
+            td
+             p(ng-hide='siva') {{member.dept}}
+             input(ng-show='siva', type='text', ng-model='member.dept')
+            td
+             p(ng-hide='siva') {{member.sem}}
+             input(ng-show='siva', type='text', ng-model='member.sem')
+            td
+             p(ng-hide='siva') {{member.section}}
+             input(ng-show='siva', type='text', ng-model='member.section')
+            td
+             p(ng-hide='siva') {{member.lab_name}}
+             input(ng-show='siva', type='text', ng-model='member.lab_name')
+            td
+             p(ng-hide='siva') {{member.coursecode}}
+             input(ng-show='siva', type='text', ng-model='member.coursecode')
+            td
+             p(ng-hide='siva') {{member.stdcount}}
+             input(ng-show='siva', type='text', ng-model='member.stdcount')
+            td
+             p(ng-hide='siva') {{member.bnkname}}
+             input(ng-show='siva', type='text', ng-model='member.bnkname')
+            td
+             p(ng-hide='siva') {{member.ifsc}}
+             input(ng-show='siva', type='text', ng-model='member.ifsc')
+            td
+             p(ng-hide='siva') {{member.acc}}
+             input(ng-show='siva', type='text', ng-model='member.acc')
+            td
+             p(ng-hide='siva') {{member.ta}}
+             input(ng-show='siva', type='text', ng-model='member.ta')
+            td
+             p(ng-hide='siva') {{member.da}}
+             input(ng-show='siva', type='text', ng-model='member.da')
+            td
+             p(ng-hide='siva') {{member.remp}}
+             input(ng-show='siva', type='text', ng-model='member.remp')
+            td
+             p(ng-hide='siva') {{member.rem}}
+             input(ng-show='siva', type='text', ng-model='member.rem')
+            td
+             p(ng-hide='siva') {{member.total}}
+             input(ng-show='siva', type='text', ng-model='member.total')
+            td
+             p(ng-hide='siva') {{member.totaldays}}
+             input(ng-show='siva', type='text', ng-model='member.totaldays')
+            td
+             p(ng-hide='siva') {{member.totalda}}
+             input(ng-show='siva', type='text', ng-model='member.totalda')
+            td
+             p(ng-hide='siva') {{ member.ta }}
+             input(ng-show='siva', type='text', ng-model=' member.ta ')
+            td
+              button.btn.btn-primary(ng-click='getREL(member)') Get
+            td
+              button.btn.btn-primary(ng-click='getRM(member)') Get
+            td
+                input.btn.btn-info(type='button' ng-hide='siva', ng-click='siva=true' value='edit')
+                input.btn.btn-info(type='button' ng-show='siva', ng-click='siva=false;update(member)' value='update')
+                //input.btn.btn-danger(type='button' ng-click='remove(member)' value='delete')
+
+            
+              
+script(type='text/javascript').
+  //---------------------------------------------history clearer for logout-----------------------
+   function disableBack() { window.history.forward(); }
+        setTimeout("disableBack()", 0);
+        window.onunload = function () { null };
+  //----------------------------------------------------------------------------------------------
+
+
+
+  /*$(document).ready(function(){
+    $('.aa').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+  });*/
+  /* $("#bt").click(function(){
+  alert(em.value);
+  }); */
+  //-------------------------REL-----------------------
+  /*function rell(){
+  var x=document.getElementById("par").innerHTML;
+
+  
+  //alert("hai "+x)
+  $.post('/getreleve',{a:x},function(data){
+    alert(data);
+  });
+  }*/
+  //-------------------------REL-----------------------
+
+  /*
+  $("#tab tr").click(function(){    
+  var value1=$(this).find('td:eq(0)').html();
+  var value2=$(this).find('td:eq(1)').html();
+  var value3=$(this).find('td:eq(2)').html();
+  var value4=$(this).find('td:eq(3)').html();
+  var value5=$(this).find('td:eq(4)').html();
+  var value6=$(this).find('td:eq(5)').html();
+  var value7=$(this).find('td:eq(6)').html();
+  var value8=$(this).find('td:eq(7)').html();
+  var value9=$(this).find('td:eq(8)').html();
+  var value10=$(this).find('td:eq(9)').html();
+  var value11=$(this).find('td:eq(10)').html();
+  var value12=$(this).find('td:eq(11)').html();
+  var value13=$(this).find('td:eq(12)').html();
+  var value14=$(this).find('td:eq(13)').html();
+  var value15=$(this).find('td:eq(14)').html();
+  var value16=$(this).find('td:eq(15)').html();
+  var value17=$(this).find('td:eq(16)').html();
+  var value18=$(this).find('td:eq(17)').html();
+  var value19=$(this).find('td:eq(18)').html();
+  var value20=$(this).find('td:eq(19)').html();
+  var value21=$(this).find('td:eq(20)').html();
+  var value22=$(this).find('td:eq(21)').html();
+  var value23=$(this).find('td:eq(22)').html();
+  document.getElementById("p1");
+  document.getElementById("p2");
+  document.getElementById("p3");
+  document.getElementById("p4");
+  document.getElementById("p5");
+  document.getElementById("p6");
+  document.getElementById("p7");
+  document.getElementById("p8");
+  document.getElementById("p9");
+  document.getElementById("p10");
+  document.getElementById("p11");
+  document.getElementById("p12");
+  document.getElementById("p13");
+  document.getElementById("p14");
+  document.getElementById("p15");
+  document.getElementById("p16");
+  document.getElementById("p17");
+  document.getElementById("p18");
+  document.getElementById("p19");
+  document.getElementById("p20");
+  document.getElementById("p21");
+  document.getElementById("p22");
+  document.getElementById("p23");
+  p1.value=value1;
+  p2.value=value2;
+  p3.value=value3;
+  p4.value=value4;
+  p5.value=value5;
+  p6.value=value6;
+  p7.value=value7;
+  p8.value=value8;
+  p9.value=value9;
+  p10.value=value10;
+  p11.value=value11;
+  p12.value=value12;
+  p13.value=value13;
+  p14.value=value14;
+  p15.value=value15;
+  p16.value=value16;
+  p17.value=value17;
+  p18.value=value18;
+  p19.value=value19;
+  p20.value=value20;
+  p21.value=value21;
+  p22.value=value22;
+  p23.value=value23;
+  //alert(value1);    
+  });*/
+  //----------------------------------------jkefh------------------------------------------
+  /*var app=angular.module('myApp',[])
+  app.controller("myController",function($scope,postdata,getdata,update,del) {
+    $scope.users=[]
+    $scope.user={}
+    $scope.get=function()
+    {
+        // body...
+      getdata.gettingdata().then(function(data) {
+        // body...
+        if (data) {
+          $scope.users=data;
+          console.log($scope.users);  
+        }
+        else{
+          $scope.users=[];
+        }
+      })
+    }   
+
+    $scope.update=function(val) {
+      console.log(val)
+      update.upditing(val)
+      
+    }
+    $scope.remove=function(val) {
+      console.log(val)
+      del.deleting(val)
+      //$scope.users.splice(val,1);
+      location.reload();  
+    }
+
+  })
+  app.service('postdata',function($http) {
+    return{
+      postingdata:function(val) {
+        console.log(val)
+        $http({method:'post',url:'/postdata',data:val}).then(function(success) {
+          console.log(success)
+          alert("successfully inserted ")
+        },function(error) {
+          console.log(error)
+          //alert(error,data)
+        })
+      }
+    }
+  });
+  app.factory('getdata',function($http) {
+    // body...
+    return{
+      gettingdata:function() {
+        // body...
+        console.log("getting data invlked");
+        datas=$http({
+          method:'get',
+          url:'/getdata'
+        }).then(function(response) {
+          // body...
+          console.log("hiii response"+response.data)
+          return response.data;
+        });
+        return datas;
+      }
+    }
+  });
+
+  app.service('update',function($http) {
+    return{
+      upditing:function(val) {
+        val.ta=val.ta*val.totaldays;
+        console.log(val)
+        $http({method:'post',url:'/editdata',data:val}).then(function(success) {
+          console.log(success)
+          alert("successfully updated ")
+        },function(error) {
+          console.log(error)
+          //alert(error,data)
+        })
+      }
+    }
+  });
+  app.service('del',function($http) {
+    return{
+      deleting:function(val) {
+        console.log(val)
+        $http({method:'post',url:'/delete',data:val}).then(function(success) {
+          console.log(success)
+          alert("successfully deleted ")
+        },function(error) {
+          console.log(error)
+          //alert(error,data)
+        })
+      }
+    }
+  });*/
+  //----------------------------------------ksjhgd-----------------------------------------
+
+  function sortTableByColumn(table, column, asc = true) {
+    const dirModifier = asc ? 1 : -1;
+    const tBody = table.tBodies[0];
+    const rows = Array.from(tBody.querySelectorAll("tr"));
+
+    // Sort each row
+    const sortedRows = rows.sort((a, b) => {
+        const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
+        const bColText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
+
+        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
+    });
+
+    // Remove all existing TRs from the table
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+    }
+
+    // Re-add the newly sorted rows
+    tBody.append(...sortedRows);
+
+    // Remember how the column is currently sorted
+    table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-asc", asc);
+    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc", !asc);
+    }
+    
+    document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+        headerCell.addEventListener("click", () => {
+            const tableElement = headerCell.parentElement.parentElement.parentElement;
+            const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+            const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+    
+            sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+        });
+    });
+    //------------------------------------------Search---------------------
+
+    (function(document) {
+      'use strict';
+      var TableFilter = (function(myArray) {
+      var search_input;
+      function _onInputSearch(e) {
+      search_input = e.target;
+      var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
+      myArray.forEach.call(tables, function(table) {
+      myArray.forEach.call(table.tBodies, function(tbody) {
+      myArray.forEach.call(tbody.rows, function(row) {
+      var text_content = row.textContent.toLowerCase();
+      var search_val = search_input.value.toLowerCase();
+      row.style.display = text_content.indexOf(search_val) > -1 ? '' : 'none';
+      });
+      });
+      });
+      }
+      return {
+      init: function() {
+      var inputs = document.getElementsByClassName('search-input');
+      myArray.forEach.call(inputs, function(input) {
+      input.oninput = _onInputSearch;
+      });
+      }
+      };
+      })(Array.prototype);
+      document.addEventListener('readystatechange', function() {
+      if (document.readyState === 'complete') {
+      TableFilter.init();
+      }
+      });
+      })(document);
+
+
+    //------------------------------------------Search---------------------
+
+  //---------------------------------------------------------------------------------------

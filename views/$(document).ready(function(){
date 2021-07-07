@@ -1,0 +1,33 @@
+$(document).ready(function(){
+    $(".ifsc").change(function () {
+    var inputvalues = $(this).val();
+    var reg = /[A-Z|a-z]{4}[0][a-zA-Z0-9]{6}$/;
+    if (inputvalues.match(reg)) {
+    return true;
+    }
+    else {
+    $(".ifsc").val("");
+    alert("You entered invalid IFSC code");
+    //document.getElementById("txtifsc").focus();
+    return false;
+    }
+    });
+    });
+
+$(document).ready(function()()
+{
+    $(".ifsc").change(function()
+    {
+        var reg=/[A-Z|a-z]{4}[0][a-zA-Z0-9]{6}$/;
+        if(inputvlues.match(reg))
+        {
+            return true;
+        }
+        else
+        {
+            $(".ifsc").val("");
+            alert("you entered invalid IFSC code");
+            return false;
+        }
+    });
+});

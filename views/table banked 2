@@ -1,0 +1,362 @@
+html
+  form(type=get, action='old_releave.pug')
+  head
+    title data
+    meta(charset='utf-8')
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+    link(href='stylesheets/style.css', rel='stylesheet')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script (src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js')
+    link(rel='stylesheet' href='https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css')
+    link(rel='stylesheet' href='https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css')
+    style.
+      .ppp{
+      display:none;
+      }
+
+  body(ng-app="myApp" ng-controller="myController" ng-init="get()"  )
+
+    a.btn(href='/' style='color:black;')
+      img(src='images/bk.png', width=40px alt='aditya logo')
+    h1 remuneration page
+    form(method='post' action='/reladmin')
+      input#p1(type='text' name='fdate1').ppp
+      input#p2(type='text' name='tdate1').ppp
+      input#p3(type='text' name='Name').ppp
+      input#p4(type='text' name='gmail').ppp
+      input#p5(type='text' name='phno').ppp
+      input#p6(type='text' name='desig').ppp
+      input#p7(type='text' name='clg').ppp
+      input#p8(type='text' name='dept').ppp
+      input#p9(type='text' name='sem').ppp
+      input#p10(type='text' name='lab').ppp
+      input#p11(type='text' name='course_code').ppp
+      input#p12(type='text' name='stud').ppp
+      input#p13(type='text' name='bank').ppp
+      input#p14(type='text' name='ifsc').ppp
+      input#p15(type='text' name='acc').ppp
+      input#p16(type='text' name='ta').ppp
+      input#p17(type='text' name='da').ppp
+      input#p18(type='text' name='rpp').ppp
+      input#p19(type='text' name='rap').ppp
+      input#p20(type='text' name='totrem').ppp
+      input#p21(type='text' name='totdays').ppp
+      input#p22(type='text' name='totda').ppp
+      input#p23(type='text' name='totta').ppp
+      table#tab.aa.table.table-bordered.table-stripped.table-hover
+        thead
+          tr
+            th from date
+            th to date
+            th name
+            th EmpID
+            th gmail
+            th ph no
+            th designation
+            th college
+            th Department
+            th Semester
+            th lab
+            th course code
+            th students count
+            th Bank name
+            th IFSC
+            th A/C no
+            th TA(from & to)
+            th DA per day
+            th remuneration per paper
+            th remuneration for all papers
+            th total remuneration
+            th no of days
+            th Total DA
+            th Total TA
+            th Generate Releave letter
+            th Generate Remunaration
+            th EDIT
+        tbody
+          tr(ng-repeat='member in users')
+              td
+               p(ng-hide='siva') {{member.fromdate}}
+               input(ng-show='siva', type='text', ng-model='member.fromdate')
+              td
+               p(ng-hide='siva') {{member.todate}}
+               input(ng-show='siva', type='text', ng-model='member.todate')
+              td
+               p#par(ng-hide='siva') {{member.name}}
+               input(ng-show='siva', type='text', ng-model='member.name')
+              td
+               p(ng-hide='siva') {{member.empid}}
+               input(ng-show='siva', type='text', ng-model='member.empid')
+              td
+               p(ng-hide='siva') {{member.mail}}
+               input(ng-show='siva', type='text', ng-model='member.mail')
+              td
+               p(ng-hide='siva') {{member.phno}}
+               input(ng-show='siva', type='text', ng-model='member.phno')
+              td
+               p(ng-hide='siva') {{member.designation}}
+               input(ng-show='siva', type='text', ng-model='member.designation')
+              td
+               p(ng-hide='siva') {{member.college}}
+               input(ng-show='siva', type='text', ng-model='member.college')
+              td
+               p(ng-hide='siva') {{member.dept}}
+               input(ng-show='siva', type='text', ng-model='member.dept')
+              td
+               p(ng-hide='siva') {{member.sem}}
+               input(ng-show='siva', type='text', ng-model='member.sem')
+              td
+               p(ng-hide='siva') {{member.lab_name}}
+               input(ng-show='siva', type='text', ng-model='member.lab_name')
+              td
+               p(ng-hide='siva') {{member.coursecode}}
+               input(ng-show='siva', type='text', ng-model='member.coursecode')
+              td
+               p(ng-hide='siva') {{member.stdcount}}
+               input(ng-show='siva', type='text', ng-model='member.stdcount')
+              td
+               p(ng-hide='siva') {{member.bnkname}}
+               input(ng-show='siva', type='text', ng-model='member.bnkname')
+              td
+               p(ng-hide='siva') {{member.ifsc}}
+               input(ng-show='siva', type='text', ng-model='member.ifsc')
+              td
+               p(ng-hide='siva') {{member.acc}}
+               input(ng-show='siva', type='text', ng-model='member.acc')
+              td
+               p(ng-hide='siva') {{member.ta}}
+               input(ng-show='siva', type='text', ng-model='member.ta')
+              td
+               p(ng-hide='siva') {{member.da}}
+               input(ng-show='siva', type='text', ng-model='member.da')
+              td
+               p(ng-hide='siva') {{member.remp}}
+               input(ng-show='siva', type='text', ng-model='member.remp')
+              td
+               p(ng-hide='siva') {{member.rem}}
+               input(ng-show='siva', type='text', ng-model='member.rem')
+              td
+               p(ng-hide='siva') {{member.total}}
+               input(ng-show='siva', type='text', ng-model='member.total')
+              td
+               p(ng-hide='siva') {{member.totaldays}}
+               input(ng-show='siva', type='text', ng-model='member.totaldays')
+              td
+               p(ng-hide='siva') {{member.totalda}}
+               input(ng-show='siva', type='text', ng-model='member.totalda')
+              td
+               p(ng-hide='siva') {{member.ta*member.totaldays}}
+               input(ng-show='siva', type='text', ng-model='member.ta*member.totaldays')
+              td
+                button#real(onclick="rell()") Get
+              td
+                a
+                  input(type='submit' value='Get' formmethod='post' formaction='\orem')
+              td
+                  input(type='button' ng-hide='siva', ng-click='siva=true' value='edit')
+                  input(type='button' ng-show='siva', ng-click='siva=false;update(member)' value='update')
+                  input(type='button' ng-click='remove(member)' value='delete')
+              
+script(type='text/javascript').
+  $(document).ready(function(){
+    $('.aa').DataTable({
+      dom:'Bfrtip',
+      buttons:[
+        'copy','csv','excel','print'
+      ]
+    });
+  });
+  /* $("#bt").click(function(){
+  alert(em.value);
+  }); */
+  //-------------------------REL-----------------------
+  function rell(){
+  var x=document.getElementById("par").innerHTML;
+  alert("hai "+x)
+  $post('/getreleve',{a:x},function(data){
+    alert("releve")
+  })
+  }
+  //-------------------------REL-----------------------
+
+
+  $("#tab tr").click(function(){    
+  var value1=$(this).find('td:eq(0)').html();
+  var value2=$(this).find('td:eq(1)').html();
+  var value3=$(this).find('td:eq(2)').html();
+  var value4=$(this).find('td:eq(3)').html();
+  var value5=$(this).find('td:eq(4)').html();
+  var value6=$(this).find('td:eq(5)').html();
+  var value7=$(this).find('td:eq(6)').html();
+  var value8=$(this).find('td:eq(7)').html();
+  var value9=$(this).find('td:eq(8)').html();
+  var value10=$(this).find('td:eq(9)').html();
+  var value11=$(this).find('td:eq(10)').html();
+  var value12=$(this).find('td:eq(11)').html();
+  var value13=$(this).find('td:eq(12)').html();
+  var value14=$(this).find('td:eq(13)').html();
+  var value15=$(this).find('td:eq(14)').html();
+  var value16=$(this).find('td:eq(15)').html();
+  var value17=$(this).find('td:eq(16)').html();
+  var value18=$(this).find('td:eq(17)').html();
+  var value19=$(this).find('td:eq(18)').html();
+  var value20=$(this).find('td:eq(19)').html();
+  var value21=$(this).find('td:eq(20)').html();
+  var value22=$(this).find('td:eq(21)').html();
+  var value23=$(this).find('td:eq(22)').html();
+  document.getElementById("p1");
+  document.getElementById("p2");
+  document.getElementById("p3");
+  document.getElementById("p4");
+  document.getElementById("p5");
+  document.getElementById("p6");
+  document.getElementById("p7");
+  document.getElementById("p8");
+  document.getElementById("p9");
+  document.getElementById("p10");
+  document.getElementById("p11");
+  document.getElementById("p12");
+  document.getElementById("p13");
+  document.getElementById("p14");
+  document.getElementById("p15");
+  document.getElementById("p16");
+  document.getElementById("p17");
+  document.getElementById("p18");
+  document.getElementById("p19");
+  document.getElementById("p20");
+  document.getElementById("p21");
+  document.getElementById("p22");
+  document.getElementById("p23");
+  p1.value=value1;
+  p2.value=value2;
+  p3.value=value3;
+  p4.value=value4;
+  p5.value=value5;
+  p6.value=value6;
+  p7.value=value7;
+  p8.value=value8;
+  p9.value=value9;
+  p10.value=value10;
+  p11.value=value11;
+  p12.value=value12;
+  p13.value=value13;
+  p14.value=value14;
+  p15.value=value15;
+  p16.value=value16;
+  p17.value=value17;
+  p18.value=value18;
+  p19.value=value19;
+  p20.value=value20;
+  p21.value=value21;
+  p22.value=value22;
+  p23.value=value23;
+  //alert(value1);    
+  });
+  //----------------------------------------jkefh------------------------------------------
+  var app=angular.module('myApp',[])
+  app.controller("myController",function($scope,postdata,getdata,update,del) {
+    $scope.users=[]
+    $scope.user={}
+    $scope.get=function()
+    {
+        // body...
+      getdata.gettingdata().then(function(data) {
+        // body...
+        if (data) {
+          $scope.users=data;
+          console.log($scope.users);  
+        }
+        else{
+          $scope.users=[];
+        }
+      })
+    }   
+
+    $scope.update=function(val) {
+      console.log(val)
+      update.upditing(val)
+      
+    }
+    $scope.remove=function(val) {
+      console.log(val)
+      del.deleting(val)
+      //$scope.users.splice(val,1);
+      location.reload();  
+    }
+
+  })
+  app.service('postdata',function($http) {
+    return{
+      postingdata:function(val) {
+        console.log(val)
+        $http({method:'post',url:'/postdata',data:val}).then(function(success) {
+          console.log(success)
+          alert("successfully inserted ")
+        },function(error) {
+          console.log(error)
+          //alert(error,data)
+        })
+      }
+    }
+  });
+  app.factory('getdata',function($http) {
+    // body...
+    return{
+      gettingdata:function() {
+        // body...
+        console.log("getting data invlked");
+        datas=$http({
+          method:'get',
+          url:'/getdata'
+        }).then(function(response) {
+          // body...
+          console.log("hiii response"+response.data)
+          return response.data;
+        });
+        return datas;
+      }
+    }
+  });
+
+  app.service('update',function($http) {
+    return{
+      upditing:function(val) {
+        console.log(val)
+        $http({method:'post',url:'/editdata',data:val}).then(function(success) {
+          console.log(success)
+          alert("successfully updated ")
+        },function(error) {
+          console.log(error)
+          //alert(error,data)
+        })
+      }
+    }
+  });
+  app.service('del',function($http) {
+    return{
+      deleting:function(val) {
+        console.log(val)
+        $http({method:'post',url:'/delete',data:val}).then(function(success) {
+          console.log(success)
+          alert("successfully deleted ")
+        },function(error) {
+          console.log(error)
+          //alert(error,data)
+        })
+      }
+    }
+  });
+  //----------------------------------------ksjhgd-----------------------------------------
+
+  
+script(type='text/javascript', src='https://code.jquery.com/jquery-3.3.1.js')
+script(type='text/javascript', src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js')
+script(type='text/javascript', src='https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js')
+script(type='text/javascript', src='https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js')
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js')
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js')
+script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js')
+script(type='text/javascript', src='https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js')
+script(type='text/javascript', src='https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js')

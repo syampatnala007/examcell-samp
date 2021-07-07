@@ -1,0 +1,147 @@
+doctype html
+html(lang='en')
+  head
+    title Login page
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='stylesheets/style.css', rel='stylesheet')
+
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')
+    style.
+      .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      opacity: 0.7;
+      }
+      .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+      }
+      .sidenav a:hover {
+      color: #f1f1f1;
+      }
+      .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      }
+      @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+      }
+      #hh {
+      float: right;
+      }
+      span:hover {
+      color: skyblue;
+      transition-duration: 1s;
+      }
+
+      .cont {
+      position: relative;
+      width: 26%;
+      }
+
+      .image {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      
+      .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: black;
+      }
+      
+      .cont:hover .overlay {
+        opacity: 0.7;
+      }
+      
+      .text {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        opacity: 0.7;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+  body
+    #mySidenav.sidenav
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+      a(href='/home') Home
+      a(href='/') Login
+      a(href='/contactpage') Contact us
+      a(href='/remuneration_data') All Data
+
+    .container
+
+      span(style='font-size:30px;cursor:pointer', onclick='openNav()') ☰
+      center
+        .row.main-content.bg-success.text-center
+          .col-md-4.text-center.company__info
+            img#icon.img-responsive.img-rounded(src='images/aditya_logo.png' alt='User Icon') 
+            h2 Aditya Engineering College
+            h4 Exam Cell Department
+            br
+            br         
+          .col-md-8.col-xs-12.col-sm-12.login_form
+            .container-fluid
+              .row
+                h2 Log In
+              .row
+                form.form-group(method='post' action='login')
+                  -if(erroe!=""){
+                    b 
+                      h4.text-danger #{error}
+                    -}
+                  .row
+                    input#username.form__input(type='text' autocomplete='off' name='user' placeholder='login' required='' autofocus='')
+                  .row
+                    // <span class="fa fa-lock"></span>
+                    input#password.form__input(type='password' name='password' placeholder='password' required='')
+                  .row
+                    input.btn(type='submit' value='Log In')
+  script.
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    }
+    // -------------------------------------------------------------------
+    function showpwd(){
+    var p=document.getElementById("pwd");
+    if (p.type=="password") {
+    p.type="text";
+    }
+    else{
+    p.type="password";
+    }
+    }

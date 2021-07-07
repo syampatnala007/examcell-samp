@@ -1,0 +1,140 @@
+html
+	head
+		title data
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(href='stylesheets/style.css', rel='stylesheet')
+
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+		style.
+			html{
+				scroll-behavior:smooth;
+			}
+			#em{
+			visibility:hidden;
+			}
+	body
+	div.row
+		div.col-sm-3
+		.card.col-sm-6
+			form(method='post',action='/no')
+				.alert.alert-success.alert-dismissible
+						//button.close(type='button', data-dismiss='alert') ×
+						center
+							p#pp 
+								b
+									p#top Do you want to continue ?&nbsp;&nbsp;&nbsp;&nbsp;
+							br
+							a.btn.btn-primary(href='/yes' style='margin-right:20px;') Proceed
+							input.btn.btn-danger(type='submit' value='Change')
+				.card-header
+					center
+						h1 data already exists with same email given ..
+				.card-body
+					.div1
+						input(type='text',name='mode',value=backup.mode).form-control
+						br
+						br
+						input(type='text',name='program',value=backup.program).form-control
+						br
+						br
+						input(type='text',name='sem',value=backup.sem).form-control
+						br
+						br
+						input(type='text',name='examtype',value=backup.examtype).form-control
+						br
+						br
+						input(type='text',name='month',value=backup.month).form-control
+						br
+						br
+						input(type='text',name='regulation',value=backup.regulation).form-control
+						br
+						br
+						input(type='text',name='fromdate',value=backup.fromdate).form-control
+						br
+						br
+						input(type='text',name='todate',value=backup.todate).form-control
+						br
+						br
+						input(type='text',name='name',value=backup.name).form-control
+						br
+						br
+						input(type='text',name='designation',value=backup.designation).form-control
+						br
+						br
+						input(type='text',name='college',value=backup.college).form-control
+						br
+						br
+						input(type='text',name='city',value=backup.city).form-control
+						br
+						br
+						input(type='text',name='phno',value=backup.phno).form-control
+						br
+						br
+						h6.alert.alert-warning
+							Email Email exists go back or click proceed to continue
+							br
+							input(type='text',name='email',value=backup.mail id='changemail' style='width:70%;').form-control
+							br
+						br
+						input(type='text',name='department',value=backup.dept).form-control
+						br
+						br
+						input(type='text',name='coursecodee',value=backup.coursecode).form-control
+						br
+						br
+						input(type='text',name='lab_name',value=backup.lab_name).form-control
+						br
+						br
+						input(type='text',name='count',value=backup.stdcount).form-control
+						br
+						br
+						input(type='text',name='bnkname',value=backup.bnkname).form-control
+						br
+						br
+						input(type='text',name='bank_acc_no',value=backup.acc).form-control
+						br
+						br
+						input(type='text',name='ifsc',value=backup.ifsc).form-control
+						br
+						br
+						input(type='text',name='designation',value=backup.remp).form-control
+						br
+						br
+						input(type='text',name='college',value=backup.rem).form-control
+						br
+						br
+						input(type='text',name='city',value=backup.totaldays).form-control
+						br
+						br
+						input(type='text',name='phno',value=backup.ta).form-control
+						br
+						br
+						input(type='text',name='email',value=backup.da).form-control
+						br
+						br
+						input(type='text',name='department',value=backup.totalda).form-control
+						br
+						br
+						input(type='text',name='coursecodee',value=backup.total).form-control
+						br
+						br
+						input(type='text',name='lab_name',value=backup.totalinwords).form-control
+		div.col-sm-2
+
+script(type='text/javascript').
+	/*function chgname(){
+	var x=document.getElementById("changemail").value;
+	var xx=document.getElementById("em").value;
+	if(x==xx){
+	alert("Email not modified");
+	}
+	else{
+	document.getElementById("top").innerHTML="Email Modified! Continue?";
+
+	}
+	}*/

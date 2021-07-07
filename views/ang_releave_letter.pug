@@ -1,0 +1,148 @@
+doctype html
+html(style='')
+  head
+    title Relieving Certificate
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='stylesheets/style.css', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
+    style.
+      #n{
+        display:none;
+      }
+      .row{
+        padding-left:150px;
+      }
+      @media print{
+        button,#im{
+          visibility:hidden;
+        }
+      }
+      @page { size: auto;  margin: 0mm; }
+  body
+    a.btn(href='/back' style='margin-left:200px;')
+      img(src='images/bk.png', width='40px' alt='aditya logo')#im
+    div#dt.container    
+      header(style='border-bottom: 2px ;text-align: center;border-bottom-style: double;')
+        div.row
+          .col-md-1
+            img(src='images/aditya.jpg', alt='aditya logo',width='110px',height='150px')
+          .col-md-10
+            h1.h ADITYA ENGINEERING COLLEGE
+            br
+            | An autonomous institution
+            br
+            | Approved by AICTE
+            b .
+            | Accredited by NBA
+            b .
+            | NAAC with "A" Grade
+            br
+            | Recognized by UGCU under Sections 2(F) and 12(B) of UGC Act,1956
+      
+      center
+      h3(style='text-align: center;margin-top:100px;')
+        u RELIEVING CERTIFICATE
+      br
+      div
+        p(style='float: left;') Prof.J Pavan
+        p(style='float: right;') Date: #{titile.fromdate}
+      br
+      br
+      p Controller of Examinations
+      br
+      p To
+      p Principal,
+      p #{titile.college},
+      p
+        | &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp #{titile.addressing} / 
+        b #{titile.name}
+        | . Working as 
+        b #{titile.designation}
+        |  is acted as an external examiner for conducting 
+        b #{titile.lab_name}
+        |  lab from 
+        b #{titile.fromdate}
+        | to 
+        b  #{titile.todate}
+        |  . He/She is relieved from his/her duties on 
+        b  #{titile.todate}
+        | .
+        br
+        br
+        br
+        br
+        br
+      
+      p(style='float: right;') Controller of Examinatons
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      div.col-md-12
+            h6(style='float:left;') AEC 
+            h6(style='float:right;') CE
+
+    table.table
+      td
+      td
+      td
+      td
+      td
+      td
+        button(onclick='window.print()').btn.btn-primary CLICK TO PRINT LETTER
+      td
+        button(onclick='Export()').btn.btn-primary CLICK TO download pdf
+      br
+      br
+      input#n(type='text' value='titile.name')
+  script.
+    function printrem() 
+    {
+
+      var divToPrint=document.getElementById('dt');
+    
+      var newWin=window.open('','Print-Window');
+    
+      newWin.document.open();
+    
+      newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+    
+      newWin.document.close();
+    
+      setTimeout(function(){newWin.close();},10);
+    
+    }
+    function Export() {
+            html2canvas(document.getElementById('dt'), {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    var name=document.getElementById('n').value;
+                    
+                    pdfMake.createPdf(docDefinition).download(name+"_releave_letter.pdf");
+                }
+            });
+      }

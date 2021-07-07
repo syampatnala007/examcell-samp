@@ -1,0 +1,1018 @@
+doctype html
+html
+  head
+    title Home
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css')
+    link(href='stylesheets/style.css', rel='stylesheet')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js')
+    style.
+      #programHide {
+        display: none;
+      }
+      #dd {
+      border-bottom: 2px solid black;
+      }
+      .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      opacity: 0.9;
+      }
+      .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+      }
+      .sidenav a:hover {
+      color: #f1f1f1;
+      }
+      .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      }
+      @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+      }
+      #hh {
+      float: right;
+      }
+      span:hover {
+      color: skyblue;
+      transition-duration: 1s;
+      }
+      
+
+      .aditya{
+        color : black;
+      }
+</style>
+  body.bg-secondary
+    
+    #mySidenav.sidenav
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+      a(href='#') Home
+      a(href='/lgn') Login
+      a(href='/contactpage') Contact us
+      a(href='/remuneration_data') All Data
+    .container(style='background-color:')
+      div#dd
+          span(style='font-size:30px;cursor:pointer', onclick='openNav()') ☰
+          center
+            h1
+              a(href='https://aec.edu.in/' target="_blank").aditya Aditya Engineering College
+      .col-md-6.col-xs-4
+        
+        h4.aditya.text-center Relieve letter and Remuneration generator
+      ul.nav.nav-tabs
+        li.active
+          a.aditya(data-toggle='tab', href='#lab') Lab
+        li
+          a.aditya(data-toggle='tab', href='#spot') Spot
+        li
+          a.aditya(data-toggle='tab', href='#project') Project
+        li
+          a.aditya(data-toggle='tab', href='#scrinizer') Scrutinizer
+      .tab-content.aditya
+        #lab.tab-pane.fade.active.in
+          h1.text-center Lab Examiner Module
+          label Select The Program
+          br
+          select.finputs#progl.form-control(name='program', onchange='change();')
+            option(value='sel') ---Select---
+            option(value='B.Tech') B. Tech
+            option(value='M.Tech') M. Tech
+            option(value='MBA') MBA
+            option(value='MCA') MCA
+            option(value='IMBA') IMBA
+          br
+          #btechd.col-md-offset-4.col-md-4
+            h1 BTECH OPTIONS
+            form(action='/insert', method='post' )
+              label#programHide program:
+              input#programHide(type='text' name='program' value='btech')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='labexaminor')
+              label Select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label Select the Semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in seme
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label Select Exam Type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='Regular') Regular
+                option(value='Supply') Supply
+                option(value='Regularandsupply') Regular/Supply
+              br
+              label Select the Month and Date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mtechd.col-md-offset-4.col-md-4
+            h1 MTECH OPTIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mtech')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='labexaminor')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label Select the Semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in msem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label Select the Exam Type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='Regular') Regular
+                option(value='Supply') Supply
+                option(value='Regularandsupply') Regular/Supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mbad.col-md-offset-4.col-md-4
+            h1 MBA OPTIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mba')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='labexaminor')
+              label Select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label Select the Semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in mbasem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label Select the Exam Type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') Regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label Select the Month and Date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mcad.col-md-offset-4.col-md-4
+            h1 MCA OPTIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mca')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='labexaminor')
+              label Select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label Select the Semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in mcasem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label Select the Exam Type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label Select the Month and Date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #imbad.col-md-offset-4.col-md-4
+            h1 IMBA OPTIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='imba')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='labexaminor')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label Select the Semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in isem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label Select the Exam Type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label Select the Month and Date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+        #spot.tab-pane.fade
+          h1.text-center Spot Module
+          label Select The Program
+          br
+          select.finputs#progs.form-control(name='program', onchange='change();')
+            option(value='sel1') ---Select---
+            option(value='B.Tech') Btech
+            option(value='M.Tech') Mtech
+            option(value='MBA') Mba
+            option(value='MCA') Mca
+            option(value='IMBA') Imba
+          br
+          #btechdspot.col-md-offset-4.col-md-4
+            h1 BTECH OPTIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='btech')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='spotevaluator')
+              label Select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              label Select the Semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in seme
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label Select the Exam Type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label Select the Month and Date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              br
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mtechdspot.col-md-offset-4.col-md-4
+            h1 MTECH OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mtech')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='spotevaluator')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in msem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mbadspot.col-md-offset-4.col-md-4
+            h1 MBA OPTIIONS
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mba')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='spotevaluator')
+            form(action='/insert', method='post')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in mbasem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mcadspot.col-md-offset-4.col-md-4
+            h1 MCA OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mca')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='spotevaluator')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in mcasem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #imbadspot.col-md-offset-4.col-md-4
+            h1 IMBA OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='imba')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='spotevaluator')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in isem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+              br
+              br
+
+        #project.tab-pane.fade
+          h1.text-center Project Module
+
+          label Select The Program
+          br
+          select.finputs#progp.form-control(name='program', onchange='change();')
+            option(value='sel2') ---Select---
+            option(value='B.Tech') Btech
+            option(value='M.Tech') Mtech
+            option(value='MBA') Mba
+            option(value='MCA') Mca
+            option(value='IMBA') Imba
+          br
+          #btechdproject.col-md-offset-4.col-md-4
+            h1 BTECH OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='btech')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='project')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in seme
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mtechdproject.col-md-offset-4.col-md-4
+            h1 MTECH OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mtech')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='project')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in msem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mbadproject.col-md-offset-4.col-md-4
+            h1 MBA OPTIIONS
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mba')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='project')
+
+            form(action='/insert', method='post')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in mbasem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mcadproject.col-md-offset-4.col-md-4
+            h1 MCA OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mca')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='project')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in mcasem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #imbadproject.col-md-offset-4.col-md-4
+            h1 IMBA OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='imba')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='project')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in isem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+
+        #scrinizer.tab-pane.fade
+          h1.text-center Scrutinizer Module
+
+          label Select The Program
+          br
+          select.finputs#progsc.form-control(name='program', onchange='change();')
+            option(value='sel3') ---Select---
+            option(value='B.Tech') Btech
+            option(value='M.Tech') Mtech
+            option(value='MBA') Mba
+            option(value='MCA') Mca
+            option(value='IMBA') Imba
+          br
+          #btechdsc.col-md-offset-4.col-md-4
+            h1 BTECH OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='btech')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='Scrutinizer')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in seme
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mtechdsc.col-md-offset-4.col-md-4
+            h1 MTECH OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mtech')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='Scrutinizer')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in msem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mbadsc.col-md-offset-4.col-md-4
+            h1 MBA OPTIIONS
+
+            form(action='/insert', method='post')
+
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mba')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='Scrutinizer')
+
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in mbasem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #mcadsc.col-md-offset-4.col-md-4
+            h1 MCA OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='mca')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='Scrutinizer')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in mcasem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                input(type='submit' value='Next').btn.btn-light
+          #imbadsc.col-md-offset-4.col-md-4
+            h1 IMBA OPTIIONS
+            form(action='/insert', method='post')
+              label#programHide program:
+              input#programHide(type='text' name='program' value='imba')
+              label#programHide mode:
+              input#programHide(type='text' name='mode' value='Scrutinizer')
+              label select the Regulation
+              select.finputs#regulation.form-control(name='regulation', required='')
+                option(value='') ---Select---
+                option(value='AR17') AR17
+                option(value='AR19') AR19
+              br
+              label select the semester
+              select.finputs#sem.form-control(name='sem', required='')
+                option(value='') ---Select---
+                each member in isem
+                  option(value=member.Semester) #{member.Semester}
+              br
+              label select the exam type
+              select.finputs#examtype.form-control(name='examtype', required='')
+                option(value='') ---Select---
+                option(value='regular') regular
+                option(value='Supply') Supply
+                option(value='regularandsupply') Regular/supply
+              br
+              label select the month and date
+              input#month.finputs.form-control(type='month', name='month')
+              br
+              
+              center
+                  input(type='submit' value='Next').btn.btn-light
+    br
+    br
+              
+              
+             
+    script.
+      function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      }
+      function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      }
+      $(document).ready(function(){
+        $("#btechd").hide();
+        $("#mtechd").hide();
+        $("#mbad").hide();
+        $("#mcad").hide();
+        $("#imbad").hide();
+
+        $("#mtechdspot").hide();
+        $("#mbadspot").hide();
+        $("#mcadspot").hide();
+        $("#imbadspot").hide();
+        $("#btechdspot").hide();
+
+        $("#mtechdproject").hide();
+        $("#mbadproject").hide();
+        $("#mcadproject").hide();
+        $("#imbadproject").hide();
+        $("#btechdproject").hide();
+
+        $("#mtechdsc").hide();
+        $("#mbadsc").hide();
+        $("#mcadsc").hide();
+        $("#imbadsc").hide();
+        $("#btechdsc").hide();
+
+
+        $("#progl").change(function () {
+          var x = document.getElementById("progl").value;
+          //alert("hiiii "+x)
+          if (x=="sel") {
+            $("#mtechd").hide();
+            $("#btechd").hide();
+            $("#mbad").hide();
+            $("#mcad").hide();
+            $("#imbad").hide();
+          }
+          if (x=="M.Tech") {
+            $("#mtechd").show(500);
+            $("#btechd").hide();
+            $("#mbad").hide();
+            $("#mcad").hide();
+            $("#imbad").hide();
+          }
+          else if (x=="B.Tech") {
+            $("#btechd").show(500);
+            $("#mtechd").hide();
+            $("#mbad").hide();
+            $("#mcad").hide();
+            $("#imbad").hide();
+          }
+          else if (x=="MBA") {
+            $("#mbad").show(500);
+            $("#mtechd").hide();
+            $("#btechd").hide();
+            $("#mcad").hide();
+            $("#imbad").hide();
+          }
+          else if (x=="MCA") {
+            $("#mcad").show(500);
+            $("#mtechd").hide();
+            $("#btechd").hide();
+            $("#mbad").hide();
+            $("#imbad").hide();
+          }
+          else if (x=="IMBA") {
+            $("#imbad").show(500);
+            $("#mtechd").hide();
+            $("#btechd").hide();
+            $("#mbad").hide();
+            $("#mcad").hide();
+          }
+        });
+
+        $("#progs").change(function () {
+          var x = document.getElementById("progs").value;
+          //alert("hiiii "+x)
+          if (x=="sel1") {
+            $("#mtechdspot").hide();
+            $("#btechdspot").hide();
+            $("#mbadspot").hide();
+            $("#mcadspot").hide();
+            $("#imbadspot").hide();
+          }
+          if (x=="M.Tech") {
+            $("#mtechdspot").show(500);
+            $("#btechdspot").hide();
+            $("#mbadspot").hide();
+            $("#mcadspot").hide();
+            $("#imbadspot").hide();
+          }
+          else if (x=="B.Tech") {
+            $("#btechdspot").show(500);
+            $("#mtechdspot").hide();
+            $("#mbadspot").hide();
+            $("#mcadspot").hide();
+            $("#imbadspot").hide();
+          }
+          else if (x=="MBA") {
+            $("#mbadspot").show(500);
+            $("#mtechdspot").hide();
+            $("#btechdspot").hide();
+            $("#mcadspot").hide();
+            $("#imbadspot").hide();
+          }
+          else if (x=="MCA") {
+            $("#mcadspot").show(500);
+            $("#mtechdspot").hide();
+            $("#btechdspot").hide();
+            $("#mbadspot").hide();
+            $("#imbadspot").hide();
+          }
+          else if (x=="IMBA") {
+            $("#imbadspot").show(500);
+            $("#mtechdspot").hide();
+            $("#btechdspot").hide();
+            $("#mbadspot").hide();
+            $("#mcadspot").hide();
+          }
+        });
+        $("#progp").change(function () {
+          var x = document.getElementById("progp").value;
+          //alert("hiiii "+x)
+          if (x=="sel2") {
+            $("#mtechdproject").hide();
+            $("#btechdproject").hide();
+            $("#mbadproject").hide();
+            $("#mcadproject").hide();
+            $("#imbadproject").hide();
+          }
+          if (x=="M.Tech") {
+            $("#mtechdproject").show(500);
+            $("#btechdproject").hide();
+            $("#mbadproject").hide();
+            $("#mcadproject").hide();
+            $("#imbadproject").hide();
+          }
+          else if (x=="B.Tech") {
+            $("#btechdproject").show(500);
+            $("#mtechdproject").hide();
+            $("#mbadproject").hide();
+            $("#mcadproject").hide();
+            $("#imbadproject").hide();
+          }
+          else if (x=="MBA") {
+            $("#mbadproject").show(500);
+            $("#mtechdproject").hide();
+            $("#btechdproject").hide();
+            $("#mcadproject").hide();
+            $("#imbadproject").hide();
+          }
+          else if (x=="MCA") {
+            $("#mcadproject").show(500);
+            $("#mtechdproject").hide();
+            $("#btechdproject").hide();
+            $("#mbadproject").hide();
+            $("#imbadproject").hide();
+          }
+          else if (x=="IMBA") {
+            $("#imbadproject").show(500);
+            $("#mtechdproject").hide();
+            $("#btechdproject").hide();
+            $("#mbadproject").hide();
+            $("#mcadproject").hide();
+          }
+        });
+        $("#progsc").change(function () {
+          var x = document.getElementById("progsc").value;
+          //alert("hiiii "+x)
+          if (x=="sel3") {
+            $("#mtechdsc").hide();
+            $("#btechdsc").hide();
+            $("#mbadsc").hide();
+            $("#mcadsc").hide();
+            $("#imbadsc").hide();
+          }
+          if (x=="M.Tech") {
+            $("#mtechdsc").show(500);
+            $("#btechdsc").hide();
+            $("#mbadsc").hide();
+            $("#mcadsc").hide();
+            $("#imbadsc").hide();
+          }
+          else if (x=="B.Tech") {
+            $("#btechdsc").show(500);
+            $("#mtechdsc").hide();
+            $("#mbadsc").hide();
+            $("#mcadsc").hide();
+            $("#imbadsc").hide();
+          }
+          else if (x=="MBA") {
+            $("#mbadsc").show(500);
+            $("#mtechdsc").hide();
+            $("#btechdsc").hide();
+            $("#mcadsc").hide();
+            $("#imbadsc").hide();
+          }
+          else if (x=="MCA") {
+            $("#mcadsc").show(500);
+            $("#mtechdsc").hide();
+            $("#btechdsc").hide();
+            $("#mbadsc").hide();
+            $("#imbadsc").hide();
+          }
+          else if (x=="IMBA") {
+            $("#imbadsc").show(500);
+            $("#mtechdsc").hide();
+            $("#btechdsc").hide();
+            $("#mbadsc").hide();
+            $("#mcadsc").hide();
+          }
+        });
+
+      });
