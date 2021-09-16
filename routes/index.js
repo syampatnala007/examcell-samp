@@ -49,11 +49,11 @@ router.get('/', function(req, res) {
 		else{
 			var s = docs.length
             console.log(docs[s-1])
-            var bdata=['I Semester','II Semester','III Semester','IV Semester','V Semester','VI Semester','VII Semester','VIII Semester']/*docs1[0],docs1[9],docs1[19],docs1[29],docs1[49],docs1[59],docs1[69],docs1[79]*/
-            var mdata=['I Semester','II Semester','III Semester','IV Semester' /*docs2[0],docs2[12],docs2[23],docs2[26]*/]
-            var idata=['I SEMESTER','II SEMESTER','III SEMESTER','IV SEMESTER','V SEMESTER','VI SEMESTER','VII SEMESTER','VIII SEMESTER','IX SEMESTER','XI SEMESTER' /*docs3[1],docs3[7],docs3[13],docs3[18],docs3[24],docs3[28],docs3[35],docs3[50],docs3[64],docs3[73]*/]
-            var mbadata=['I SEMESTER','II SEMESTER','III SEMESTER','IV SEMESTER' /*docs4[1],docs4[11],docs4[22],docs4[50]*/]
-            var mcadata=['I SEMESTER','II SEMESTER','III SEMESTER','IV SEMESTER','V SEMESTER','VI SEMESTER' /*docs5[1],docs5[12],docs5[18],docs5[32],docs5[39],docs5[49]*/]
+            var bdata=[docs1[0],docs1[9],docs1[19],docs1[29],docs1[49],docs1[59],docs1[69],docs1[79]]/**/
+            var mdata=[docs2[0],docs2[12],docs2[23],docs2[26]]
+            var idata=[docs3[1],docs3[7],docs3[13],docs3[18],docs3[24],docs3[28],docs3[35],docs3[50],docs3[64],docs3[73]]
+            var mbadata=[docs4[1],docs4[11],docs4[22],docs4[50]]
+            var mcadata=[docs5[1],docs5[12],docs5[18],docs5[32],docs5[39],docs5[49]]
 			res.render('index',{"title": docs,"seme":bdata,"msem":mdata,"isem":idata,"mbasem":mbadata,"mcasem":mcadata});
 		}
 	})
