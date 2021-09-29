@@ -45,14 +45,14 @@ html
 							input#reg(type='text',name='regulation' value=college_det.regulation).form-control
 							br
 							br
-							label From Date :
-							input#fdate(type='date',name='fromdate',required='' ).form-control
-							br
-							br
-							label To Date :
-							input#tdate(type='date',onchange="fun()",name='todate',required='' ).form-control
-							br
-							br
+							label.sel1 From Date :
+							input.sel1#fdate(type='date',name='fromdate',required='' ).form-control
+							br.sel1
+							br.sel1
+							label.sel1 To Date :
+							input.sel1#tdate(type='date',onchange="fun()",name='todate',required='' ).form-control
+							br.sel1
+							br.sel1
 							
 							label.iid Employee ID : 
 							input.iid(type='text',name='EmpID',placeholder='enter examiner id').form-control
@@ -95,10 +95,10 @@ html
 							//br
 							label Phone No :
 							input(type='tel',name='phno',placeholder='enter examinor phonenumber',required='' maxlength='10' minlength='10').form-control
-							br
-							br
-							label Email :
-							input(type='email',name='email',placeholder='enter examinor mail-id',required='').form-control
+							br.sel1
+							br.sel1
+							label.sel1 Email :
+							input.sel1(type='email',name='email',placeholder='enter examinor mail-id',required='').form-control
 							br
 							br
 							label Department :
@@ -107,10 +107,10 @@ html
 								each member in branch
 									option(value=member.Branch) #{member.Branch}
 								
-							br
-							br
-							label Select Section
-							select.form-control(name='section',required='')
+							br.sel1
+							br.sel1
+							label.sel1 Select Section
+							select.sel1.form-control(name='section',required='')
 								option(value='') ---Select---
 								option(value='A') A
 								option(value='B') B
@@ -136,12 +136,13 @@ html
 							br
 							br
 							
-							label No of Students :
-							input(type='number',name='count',placeholder='enter no of students ' required='').form-control
-							br
-							br
+							label.sel1 No of Students :
+							label.iid No of Scripts :
+							input(type='number',name='count',placeholder='enter no of Students/Scripts ' required='').form-control
+							br.sel1
+							br.sel1
 
-							.row
+							.row.sel1
 								.col-md-6
 									label Lateral Entries :
 									input(type='number',name='les',placeholder='enter no of lateral entry students ' required='').form-control
@@ -150,11 +151,15 @@ html
 									input(type='number',name='added',placeholder='enter no of added students ' required='').form-control
 							br
 							br
-							label.iid Payment per Script :
-							select.iid.form-control(name='pps')
-								option(value='') ---select---
-								option(value='3') 3₹
-								option(value='1.5') 1.5₹
+							label.iid Payment per Script(₹) :
+							input(type='text' name='pps' list='ppps' required='' placeholder='---select---').form-control
+							datalist#ppps
+								option(value='1.5') 1.5
+							br.iid
+							br.iid
+
+							label.iid Bundle Number :
+							input(type='text' name='bnum' required='' placeholder='Enter Bundle Number').form-control
 							br.iid
 							br.iid
 
