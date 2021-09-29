@@ -209,6 +209,7 @@ router.post('/form',function(req,res) {
 		le:req.body.les,
 		added:req.body.added,
 		addressing:req.body.addressing,
+		bundle_num:req.body.bnum,
 	}
 
 	collection.findOne({"mail":req.body.email},function(err,docs) {
