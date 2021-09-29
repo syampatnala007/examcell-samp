@@ -46,11 +46,11 @@ html
 							br
 							br
 							label.sel1 From Date :
-							input.sel1#fdate(type='date',name='fromdate',required='' ).form-control
+							input.sel1#fdate(type='date',name='fromdate'  ).form-control
 							br.sel1
 							br.sel1
 							label.sel1 To Date :
-							input.sel1#tdate(type='date',onchange="fun()",name='todate',required='' ).form-control
+							input.sel1#tdate(type='date',onchange="fun()",name='todate' ).form-control
 							br.sel1
 							br.sel1
 							
@@ -98,7 +98,7 @@ html
 							br.sel1
 							br.sel1
 							label.sel1 Email :
-							input.sel1(type='email',name='email',placeholder='enter examinor mail-id',required='').form-control
+							input.sel1(type='email',name='email',placeholder='enter examinor mail-id').form-control
 							br
 							br
 							label Department :
@@ -110,7 +110,7 @@ html
 							br.sel1
 							br.sel1
 							label.sel1 Select Section
-							select.sel1.form-control(name='section',required='')
+							select.sel1.form-control(name='section')
 								option(value='') ---Select---
 								option(value='A') A
 								option(value='B') B
@@ -145,21 +145,21 @@ html
 							.row.sel1
 								.col-md-6
 									label Lateral Entries :
-									input(type='number',name='les',placeholder='enter no of lateral entry students ' required='').form-control
+									input(type='number',name='les',placeholder='enter no of lateral entry students ' ).form-control
 								.col-md-6
 									label Added Students :
-									input(type='number',name='added',placeholder='enter no of added students ' required='').form-control
+									input(type='number',name='added',placeholder='enter no of added students ' ).form-control
 							br
 							br
 							label.iid Payment per Script(₹) :
-							input(type='text' name='pps' list='ppps' required='' placeholder='---select---').form-control
+							input(type='text' name='pps' list='ppps' placeholder='---select---').form-control
 							datalist#ppps
 								option(value='1.5') 1.5
 							br.iid
 							br.iid
 
 							label.iid Bundle Number :
-							input(type='text' name='bnum' required='' placeholder='Enter Bundle Number').form-control
+							input(type='text' name='bnum' placeholder='Enter Bundle Number').form-control
 							br.iid
 							br.iid
 
