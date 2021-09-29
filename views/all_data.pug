@@ -70,6 +70,8 @@ html
 						th No of days
 						th Total DA
 						th Total TA
+						th Employee Id
+						th Bundle Number
 						th Generate Releave letter
 						th Generate Remunaration
 				tbody
@@ -99,6 +101,8 @@ html
 							td #{member.totaldays}
 							td #{member.totalda}
 							td #{member.ta*member.totaldays}
+							td #{member.empid}
+							td #{member.bundle_num}
 							td
 								a
 									input(type='submit' value='Get').btn
