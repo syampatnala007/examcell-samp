@@ -70,7 +70,7 @@ router.get('/', function(req, res) {
 router.post('/form',function(req,res) {
 	var ta=0;
 	//var remuneration=req.body.count*10;
-	var da;
+	var da=0;
 	var c=req.body.count;
 	//---------------------city--------------------------------
 	if (req.body.college=='S.R.K.R. Engineering College, Bhimavaram') {
@@ -156,8 +156,14 @@ router.post('/form',function(req,res) {
 	
 	var date2=new Date(req.body.todate);
 	var date1=new Date(req.body.fromdate);
-	var dddd1=dateFormat(date1, "d-m-yyyy");
-	var dddd2=dateFormat(date2, "d-m-yyyy");
+	//------------29-09-2021
+	var dddd1="";
+	var dddd2="";
+	if(req.body.mode!='Scrutinizer'){
+		dddd1=dateFormat(date1, "d-m-yyyy");
+		dddd2=dateFormat(date2, "d-m-yyyy");
+	}
+	//------------29-09-2021
 	console.log("date--------------------"+dddd1)
 
 
@@ -165,6 +171,11 @@ router.post('/form',function(req,res) {
 	var a=Math.abs(date1-date2)/1000;
 	var remuneration=remunerationP*c;
 	var totaldays=Math.floor(a/86400)+1;
+	//------------29-09-2021
+	if(req.body.mode="Scrutinizer"){
+		totaldays=1;
+	}
+	//------------29-09-2021
 	var dad=da*totaldays;
 	var total=ta+dad+remuneration;
 	console.log(dad)
@@ -209,7 +220,7 @@ router.post('/form',function(req,res) {
 		le:req.body.les,
 		added:req.body.added,
 		addressing:req.body.addressing,
-		bundle_num:req.body.bnum,
+		bundle_num:req.body.bnum,//------------29-09-2021
 	}
 
 	collection.findOne({"mail":req.body.email},function(err,docs) {
