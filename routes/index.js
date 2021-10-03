@@ -136,8 +136,8 @@ router.post('/form',function(req,res) {
 		else{
 			remunerationP=1.5;
 		}
-		da=0;
-		ta=0;
+		da='NA';
+		ta='NA';
 	}
 	else if (req.body.mode=='project'||req.body.mode=='Project') {
 		remunerationP=1500;
@@ -159,12 +159,16 @@ router.post('/form',function(req,res) {
 	//------------29-09-2021
 	var dddd1="";
 	var dddd2="";
+	var email='';
+	var clgName=''
+
 	if(req.body.mode!='Scrutinizer'){
 		dddd1=dateFormat(date1, "d-m-yyyy");
 		dddd2=dateFormat(date2, "d-m-yyyy");
+		email=req.body.email;
+		clgName=req.body.college;
 	}
 	//------------29-09-2021
-	console.log("date--------------------"+dddd1)
 
 
 
@@ -172,16 +176,34 @@ router.post('/form',function(req,res) {
 	var remuneration=remunerationP*c;
 	var totaldays=Math.floor(a/86400)+1;
 	//------------29-09-2021
+
 	if(req.body.mode="Scrutinizer"){
 		totaldays=1;
+		email='NA';
+		total=remuneration;
+		clgName='Aditya Engineering College';
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+		var yyyy = today.getFullYear();
+
+		today = mm + '/' + dd + '/' + yyyy;
+		dddd1=today;
+		dddd2=today;
 	}
-	//------------29-09-2021
+	else
+	{
 	var dad=da*totaldays;
 	var total=ta+dad+remuneration;
+}
 	console.log(dad)
 	console.log(total)
+
+	//------------29-09-2021
+	
 	var totalinwords=converter.toWords(total);
 	console.log("hiiiiiiiiiiiiiiiiiii"+totalinwords)
+	console.log('------------------------------------------------ ')
 
 	console.log(totaldays+" days")
 	var data={
@@ -193,7 +215,7 @@ router.post('/form',function(req,res) {
 		fromdate:dddd1,
 		todate:dddd2,
 		name:req.body.name,
-		college:req.body.college,
+		college:clgName,
 		dept:req.body.department,
 		city:req.body.city,
 		designation:req.body.designation,
@@ -213,7 +235,7 @@ router.post('/form',function(req,res) {
 		totalinwords:totalinwords,
 		bnkname:req.body.bnkname,
 		phno:req.body.phno,
-		mail:req.body.email,
+		mail:email,
 		mode:req.body.mode,
 		empid:req.body.EmpID,
 		section:req.body.section,
@@ -222,6 +244,30 @@ router.post('/form',function(req,res) {
 		addressing:req.body.addressing,
 		bundle_num:req.body.bnum,//------------29-09-2021
 	}
+//emp id
+if(req.body.mode="Scrutinizer"){
+	collection.findOne({"empid":req.body.EmpID},function(err,docs) {
+		// body...
+		if (docs) {
+			
+			collection1.insert(data,function(err,docs){
+				console.log(docs);
+				res.render('exist',{"backup":docs});
+			});
+		}
+		else
+		{
+			collection.insert(data,function(err,docs){
+				console.log(docs);
+				res.render('page2',{"success":"one record inserted successfuly !"});
+			});
+
+		}
+	})
+
+}
+else
+{
 
 	collection.findOne({"mail":req.body.email},function(err,docs) {
 		// body...
@@ -241,6 +287,8 @@ router.post('/form',function(req,res) {
 
 		}
 	})
+}
+
 	//console.log(data);
 		
 })
@@ -669,7 +717,9 @@ router.get('/yes',function(req,res) {
             var idata=[docs3[1],docs3[7],docs3[13],docs3[18],docs3[24],docs3[28],docs3[35],docs3[50],docs3[64],docs3[73]]
             var mbadata=[docs4[1],docs4[11],docs4[22],docs4[50]]
             var mcadata=[docs5[1],docs5[12],docs5[18],docs5[32],docs5[39],docs5[49]]
-			res.render('index',{"title": docs,"seme":bdata,"msem":mdata,"isem":idata,"mbasem":mbadata,"mcasem":mcadata});
+			//res.render('index',{"title": docs,"seme":bdata,"msem":mdata,"isem":idata,"mbasem":mbadata,"mcasem":mcadata});
+			res.render('page2',{"success":"one record inserted successfuly !"});
+
 		})
 		});
 						})
