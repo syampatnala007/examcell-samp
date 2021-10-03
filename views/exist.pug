@@ -14,7 +14,7 @@ html
 			html{
 				scroll-behavior:smooth;
 			}
-			#em{
+			#em,.card-body{
 			visibility:hidden;
 			}
 	body
@@ -33,7 +33,7 @@ html
 							input.btn.btn-danger(type='submit' value='Change')
 				.card-header
 					center
-						h1 data already exists with same email given ..
+						h1 data already exists with same #{type} given ..
 				.card-body
 					.div1
 						input(type='text',name='mode',value=backup.mode).form-control
