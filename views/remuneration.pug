@@ -92,13 +92,21 @@ html
             tr
               td
                 | Designation :
-              td
-                | #{titile.designation}
+                if(titile.mode=='Scrutinizer')
+                  td
+                    | NA
+                else
+                  td
+                    | #{titile.designation}
             tr
               td
                 | Name of the College :
-              td
-                | #{titile.college}
+                if(titile.mode=='Scrutinizer')
+                  td
+                    | Aditya Engineering College
+                else
+                  td
+                    | #{titile.college}
             tr
               td
                 | PH No :
