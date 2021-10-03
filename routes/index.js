@@ -182,14 +182,14 @@ router.post('/form',function(req,res) {
 		email='NA';
 		total=remuneration;
 		clgName='Aditya Engineering College';
-		var today = new Date();
+		/*var today = new Date();
 		var dd = String(today.getDate()).padStart(2, '0');
 		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 		var yyyy = today.getFullYear();
 
-		today = mm + '/' + dd + '/' + yyyy;
-		dddd1=today;
-		dddd2=today;
+		today = mm + '/' + dd + '/' + yyyy;*/
+		dddd1=today.getDate()+"-"+today.getMonth()+1+"-"+today.getFullYear();
+		dddd2=today.getDate()+"-"+today.getMonth()+1+"-"+today.getFullYear();
 	}
 	else
 	{
