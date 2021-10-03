@@ -252,7 +252,7 @@ if(req.body.mode="Scrutinizer"){
 			
 			collection1.insert(data,function(err,docs){
 				console.log(docs);
-				res.render('exist',{"backup":docs});
+				res.render('exist',{"backup":docs,"type":"'employee id'"});
 			});
 		}
 		else
@@ -275,7 +275,7 @@ else
 			
 			collection1.insert(data,function(err,docs){
 				console.log(docs);
-				res.render('exist',{"backup":docs});
+				res.render('exist',{"backup":docs,"type":"'email id'"});
 			});
 		}
 		else
