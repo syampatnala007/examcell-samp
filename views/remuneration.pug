@@ -155,12 +155,20 @@ html
             tr
               td
                 | DA Amount: 
-              td
-                | #{titile.totalda}
+                if(titile.mode=='Scrutinizer')
+                  td
+                    | NA
+                else
+                  td
+                    | #{titile.totalda}
               td
                 | TA Amount: (TA for both sides X No.of days)
-              td
-                | #{(titile.ta)*titile.totaldays}
+                if(titile.mode=='Scrutinizer')
+                  td
+                    | NA
+                else
+                  td
+                    | #{(titile.ta)*titile.totaldays}
       table#ttd(width='800').table.table-bordered.table-stripped.table-hover
             tr
               td
