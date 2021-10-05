@@ -130,11 +130,11 @@ router.post('/form',function(req,res) {
 	}
 	var mode=req.body.mode;
 	if (req.body.mode=='Scrutinizer') {
-		if(req.body.pps=='3'||req.body.pps==3){
-			remunerationP=3;
+		if(req.body.pps=='1.5'||req.body.pps==1.5){
+			remunerationP=1.5;
 		}
 		else{
-			remunerationP=1.5;
+			remunerationP=Number(req.body.pps);
 		}
 		da='NA';
 		ta='NA';
